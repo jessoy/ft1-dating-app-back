@@ -8,7 +8,6 @@ const queries = require("./mysql/queriesMatching");
 module.exports = {
   // takes pulled data from DB and reformats to clean array of integers
   formatToIdArray: (list) => {
-    // const list = await pConnection(queriesMatching.nameOfQuery(userDetails.user_id));
     const listArray = [];
     for (let j = 0; j < list.length; j++) {
       listArray.push(list[j].foreignId);
@@ -19,7 +18,7 @@ module.exports = {
   getIndexById: (userId, users) => {
     return users.findIndex((user) => Number(user.userId) === Number(userId));
   },
-  
+
   getUniqueId: (length) => {
     const now = Date.now().toString();
     let uniqueId = "";
@@ -43,7 +42,4 @@ module.exports = {
     var time = { year: newYear, months: newMonth, day: newDate };
     return time;
   },
-
-
 };
-
